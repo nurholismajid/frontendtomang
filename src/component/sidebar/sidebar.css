@@ -1,0 +1,45 @@
+@media only screen and (min-width: 768px) {
+    .sidebar .nav-item .nav-link span {
+        font-size: 18px;
+        display: inline;
+        color: #fff;
+    }
+    .sidebar .nav-item .nav-link i {
+        font-size: 18px;
+        margin-right: .25rem;
+        color: #fff;
+    }
+    li.nav-item {
+        padding: 0px 25px;
+        border-bottom: 1px solid #fff8;
+    }
+
+    .sidebar.toggled > li.nav-item {
+        padding: 0px 0px;
+        border-bottom: 1px solid #fff8;
+    }
+
+    .text-center.d-none.d-md-inline {
+        margin-top: 30px;
+    }
+
+    .sidebar .nav-item .nav-link[data-toggle=collapse]::after {
+        width: 1rem;
+        text-align: center;
+        float: right;
+        vertical-align: 0;
+        border: 0;
+        font-weight: 900;
+        content: '\f107';
+        font-family: 'Font Awesome 5 Free';
+        margin-right: 28px;
+    }
+    .py-2.collapse-inner.rounded {
+        background: #4369d7;
+    }
+
+    .py-2.collapse-inner.rounded a {
+        width: 100% !important;
+    }
+  }
+  
