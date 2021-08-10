@@ -54,6 +54,20 @@ class App extends Component  {
           this.props.updatetutoril(tutorial);
           
         })
+
+        Api.get('/category-faqs')
+        .then(res => {
+          const categoryfaq = res.data;
+          this.props.updatecategoryfaq(categoryfaq);
+          
+        })
+
+        Api.get('/faqs')
+        .then(res => {
+          const faq = res.data;
+          this.props.updatefaq(faq);
+          
+        })
  
 }
 
@@ -77,6 +91,8 @@ return{
   updatecategory: (data) => dispatch({type:'UPDATECATEGORY',datacategory:data}),
   updatelayanan: (data) => dispatch({type:'UPDATELAYANAN',datalayanan:data}),
   updatetutoril: (data) => dispatch({type:'UPDATETUTORIAL',datatutorial:data}),
+  updatecategoryfaq: (data) => dispatch({type:'UPDATECATEGORYFAQ',datacategoryfaq:data}),
+  updatefaq: (data) => dispatch({type:'UPDATEFAQ',datafaq:data}),
 }
 }
 

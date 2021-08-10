@@ -11,6 +11,8 @@ const globalState = {
   datacategory:[],
   datalayanan:[],
   datatutorial:[],
+  datacategoryfaq:[],
+  datafaq:[]
 }
 
 const rootReducer = (state = globalState, action) => {
@@ -45,7 +47,22 @@ const rootReducer = (state = globalState, action) => {
       datatutorial:action.datatutorial
     } 
   }
+
+  if(action.type === 'UPDATECATEGORYFAQ'){
+    return{
+      ... state,
+      datacategoryfaq:action.datacategoryfaq
+    } 
+  }
   
+  if(action.type === 'UPDATEFAQ'){
+    return{
+      ... state,
+      datafaq:action.datafaq
+    } 
+  }
+  
+
   return state;
 
 }
