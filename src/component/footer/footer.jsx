@@ -1,7 +1,5 @@
 import React, { Component } from 'react';
 import {connect} from 'react-redux';
-import swal from 'sweetalert';
-import Api from '../../services/services';
 class Footer extends Component  {
 
   constructor(props) {
@@ -12,38 +10,13 @@ class Footer extends Component  {
   
   }
 
-  handleChange = (e) =>{
-    this.setState({
-        [e.target.name]: e.target.value
-    })
-}
-
-  funswal = (status,pesan,style)=>{
-    swal(status,pesan, style);
-} 
-handleSubmit = (e) => {
-    const data = {
-      Subjek : this.state.subject,
-      Email : this.state.email,
-      Tanggal: this.state.date,
-      Pesan: this.state.message
-    }
-
-    Api.post('contacts',data)
-          .then(res => {
-            this.funswal("Sukses","Pesan Terkirim","success");
-    })   
-
   
-
-}
-
   render(){  
     return(
         <footer className="sticky-footer bg-white">
                 <div className="container my-auto">
                     <div className="copyright text-center my-auto">
-                        <span>Copyright &copy; Beafakfak 2021</span>
+                        <span>{this.props.option.CopyRight}</span>
                     </div>
                 </div>
             </footer>

@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import {link, Link} from 'react-router-dom';
 import {connect} from 'react-redux';
 import swal from 'sweetalert';
-import Api from '../../services/services';
 import './sidebar.css'
 class Sidebar extends Component  {
 
@@ -12,7 +11,7 @@ class Sidebar extends Component  {
     this.state = {
       btnsidebar : "navbar-nav bg-gradient-primary sidebar sidebar-dark accordion"
     }
-  
+    console.log()
   }
 
   
@@ -30,12 +29,14 @@ handlesidebar = (e) => {
 
   render(){  
     return(
+      <div>
+        <title>{this.props.option.NameWeb + "-" + this.props.option.TagLine}</title>
         <ul className={this.state.btnsidebar} id="accordionSidebar">
             <Link className="sidebar-brand d-flex align-items-center justify-content-center" to="/">
                 <div className="sidebar-brand-icon rotate-n-15">
                     <i className="fas fa-laugh-wink"></i>
                 </div>
-                <div className="sidebar-brand-text mx-3">SB Admin <sup>2</sup></div>
+                <div className="sidebar-brand-text mx-3">{this.props.option.NameWeb}</div>
             </Link>
 
             <hr className="sidebar-divider my-0" />
@@ -65,7 +66,7 @@ handlesidebar = (e) => {
                 <div id="collapseUtilities" className="collapse" aria-labelledby="headingUtilities"
                     data-parent="#accordionSidebar">
                     <div className=" py-2 collapse-inner rounded">
-                        <Link className="nav-link" to="/datapengajuan"><i class="fas fa-server"></i> Data Pengajuan</Link>
+                        <Link className="nav-link" to="/datalayanan"><i class="fas fa-server"></i> Data Layanan</Link>
                         <Link className="nav-link" to="/tutorial"><i class="far fa-play-circle"></i> Video Tutorial</Link>
                     </div>
                 </div>
@@ -84,6 +85,7 @@ handlesidebar = (e) => {
                 <button onClick={this.handlesidebar} className="rounded-circle border-0" id="sidebarToggle"></button>
             </div>
         </ul>
+        </div>
     )
   }
 }
