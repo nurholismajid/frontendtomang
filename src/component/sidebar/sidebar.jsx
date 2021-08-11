@@ -33,8 +33,8 @@ handlesidebar = (e) => {
         <title>{this.props.option.NameWeb + "-" + this.props.option.TagLine}</title>
         <ul className={this.state.btnsidebar} id="accordionSidebar">
             <Link className="sidebar-brand d-flex align-items-center justify-content-center" to="/">
-                <div className="sidebar-brand-icon rotate-n-15">
-                    <i className="fas fa-laugh-wink"></i>
+                <div className="sidebar-brand-icon">
+                    <img src={this.props.option.Logo} width="40px" />
                 </div>
                 <div className="sidebar-brand-text mx-3">{this.props.option.NameWeb}</div>
             </Link>
