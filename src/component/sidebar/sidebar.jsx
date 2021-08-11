@@ -53,7 +53,7 @@ handlesidebar = (e) => {
             </li>
 
             <li className="nav-item">
-                <Link className="nav-link" to="/pengajuan">
+                <Link className="nav-link" to="/datalayanan">
                 <i className="fas fa-fw fa-edit"></i>
                     <span>Pengajuan</span></Link>
             </li>

@@ -25,6 +25,10 @@ class datapengjuan extends Component {
         })
     }
 
+    handelform(data){
+      localStorage.setItem('titleform', data);
+    }
+
     handelPersyaratan(data){
         this.setState({ persyaratans:data });
     }
@@ -43,7 +47,7 @@ class datapengjuan extends Component {
                         namalayanan : layanan.NamaLayanan,
                         janjilayanan : layanan.JanjiLayanan,
                         persyaratan : <button onClick={()=>this.handelPersyaratan(layanan.Persyaratan)} type="button" class="btn btn-primary" data-toggle="modal" data-target="#popuppersyaratan">Persyaratan</button>,
-                        permohonan : <Link to="/pengajuan" className="btn btn-success">Pengjuan</Link>,
+                        permohonan : <Link onClick={()=>this.handelform(layanan.NamaLayanan)} to="/pengajuan" className="btn btn-success">Pengjuan</Link>,
                      } )
                     })
 
