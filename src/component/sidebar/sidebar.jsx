@@ -72,7 +72,7 @@ handlesidebar = (e) => {
                 </div>
             </li>
             <li className="nav-item">
-                <a className="nav-link" href="https://api.whatsapp.com/send?phone=6282215687135&text=Hello%20ada%20yg%20bisa%20kami%20bantu%3F%E2%98%BA%EF%B8%8F">
+                <a className="nav-link" target="_blank" href="https://api.whatsapp.com/send?phone=6282215687135&text=Hello%20ada%20yg%20bisa%20kami%20bantu%3F%E2%98%BA%EF%B8%8F">
                 <i class="fas fa-bullhorn"></i>
                     <span>Pengaduan</span></a>
             </li>
