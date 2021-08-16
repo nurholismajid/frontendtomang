@@ -43,3 +43,6 @@
     }
   }
   
+  .dropdown-menu.dropdown-menu-right.shadow.animated--grow-in.show {
+    padding: 20px;
+}

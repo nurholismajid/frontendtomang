@@ -43,12 +43,23 @@ class datapengjuan extends Component {
             })
                 
                 const datalayanan = this.state.percatrgory.map(layanan=>{
+                  if(localStorage.getItem('token') !== ""){
+                    
+                    var btn1 ={
+                      display:"block"
+                    }
+
+                 }else{
+                   var btn1 ={
+                    display:"none"
+                  }
+                }
                     return({
                         id : layanan.id,
                         namalayanan : layanan.NamaLayanan,
                         janjilayanan : layanan.JanjiLayanan,
                         persyaratan : <button onClick={()=>this.handelPersyaratan(layanan.Persyaratan)} type="button" class="btn btn-primary" data-toggle="modal" data-target="#popuppersyaratan">Persyaratan</button>,
-                        permohonan : <Link onClick={()=>this.handelform(layanan.id,layanan.NamaLayanan)} to="/pengajuan" className="btn btn-success">Pengjuan</Link>,
+                        permohonan : <Link style={btn1} onClick={()=>this.handelform(layanan.id,layanan.NamaLayanan)} to="/pengajuan" className="btn btn-success">Pengjuan</Link>,
                      } )
                     })
 

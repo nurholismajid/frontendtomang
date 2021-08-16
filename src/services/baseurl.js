@@ -1,1 +1,1 @@
-export default "http://185.210.144.103:1337";
+export default "https://dashboard.layananbcfakfak.net";

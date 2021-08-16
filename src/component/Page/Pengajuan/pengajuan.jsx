@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import Api from '../../../services/services';
 import Select from 'react-select';
 import swal from 'sweetalert';
+import {Redirect, Link } from 'react-router-dom';
 class pengajuan extends Component {
     constructor(props) {
         super(props);
@@ -137,6 +138,9 @@ class pengajuan extends Component {
     }
 
     render() {
+        if (localStorage.getItem('token') === "") {
+            return <Redirect to="/" />
+        }
         console.log(this.state.file)
         console.log(this.state.layanans)
         const persyaratan = this.state.layanans.map(Persyaratan=>{
