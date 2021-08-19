@@ -10,7 +10,7 @@ class Home extends Component {
 
          const loopbanner = banners.map(banner=>{
             return(
-            <div key={banner.id} className="col col-md-4 col-sm-6">
+            <div key={banner.id} className="col-12 col-md-4">
                         <div className="card-img">
                             <a href={banner.Link}>
                                 <img src={baseurl+banner.Image.url} width="100%" alt="" />

@@ -45,4 +45,60 @@
   
   .dropdown-menu.dropdown-menu-right.shadow.animated--grow-in.show {
     padding: 20px;
+    width: 300px;
+}
+
+a.dropdown-item.btn-primary {
+    background-color: #4e73df;
+    color: #fff;
+    padding: 9px;
+}
+
+.formlogin input {
+    width: 100%;
+    margin-bottom: 10px;
+    padding: 10px;
+}
+.py-2.collapse-inner.rounded {
+    background: #4369d7;
+}
+
+.py-2.collapse-inner.rounded a {
+    width: 100%;
+}
+
+p {font-size: 12px;}
+
+.col {
+    font-size: 12px;
+}
+
+a.chat {
+    position: fixed;
+    right: 20px;
+    bottom: 20px;
+    color: #4e73df;
+    font-size: 78px;
+}
+
+a.chat img {
+    width: 80px;
+}
+
+div#chat .modal-dialog {
+    max-width: 430px;
+    margin-top: 260px;
+}
+
+div.card-header button, div.card-header button:hover {
+    border: unset !important;
+    box-shadow:unset !important;
+    font-size: 18px;
+    font-weight: 900;
+    color: #fff;
+    text-decoration: unset !important;
+}
+
+div.tab-pane.active div.card-header {
+    background: #2c53c5;
 }

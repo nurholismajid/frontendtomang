@@ -9,9 +9,9 @@ class Sidebar extends Component  {
     super(props);
 
     this.state = {
-      btnsidebar : "navbar-nav bg-gradient-primary sidebar sidebar-dark accordion"
+      btnsidebar : this.props.button
     }
-    console.log()
+   
   }
 
   
@@ -20,10 +20,12 @@ class Sidebar extends Component  {
     swal(status,pesan, style);
 } 
 handlesidebar = (e) => {
-  if(this.state.btnsidebar != "navbar-nav bg-gradient-primary sidebar sidebar-dark accordion"){
-  this.setState({btnsidebar:"navbar-nav bg-gradient-primary sidebar sidebar-dark accordion"})  
+  if(this.props.button != "navbar-nav bg-gradient-primary sidebar sidebar-dark accordion"){
+    const btnsidebar = "navbar-nav bg-gradient-primary sidebar sidebar-dark accordion";
+  this.props.updatebutton(btnsidebar)  
   }else{
-    this.setState({btnsidebar:"navbar-nav bg-gradient-primary sidebar sidebar-dark accordion toggled"})
+    const btnsidebar = "navbar-nav bg-gradient-primary sidebar sidebar-dark accordion toggled";
+  this.props.updatebutton(btnsidebar)
   }
 }
 
@@ -31,7 +33,7 @@ handlesidebar = (e) => {
     return(
       <div>
         <title>{this.props.option.NameWeb + "-" + this.props.option.TagLine}</title>
-        <ul className={this.state.btnsidebar} id="accordionSidebar">
+        <ul className={this.props.button} id="accordionSidebar">
             <Link className="sidebar-brand d-flex align-items-center justify-content-center" to="/">
                 <div className="sidebar-brand-icon">
                     <img src={this.props.option.Logo} width="40px" />
@@ -90,10 +92,17 @@ handlesidebar = (e) => {
   }
 }
 
+const mapDipatchToprops = (dispatch) =>{
+  return{
+    updatebutton: (data) => dispatch({type:'UPDATEBUTTON',databutton:data}),
+  }
+  }
+
 const mapStatetoprops=(state)=>{
   return{
-    option:state.datawebsiteidentity
+    option:state.datawebsiteidentity,
+    button:state.databutton
   }
 }
 
-export default connect(mapStatetoprops)(Sidebar);
+export default connect(mapStatetoprops,mapDipatchToprops)(Sidebar);

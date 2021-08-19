@@ -42,7 +42,6 @@ class Faq extends Component {
                         
                         return(
                             <tr key={data.id}>
-                                        <td>{data.id}</td>
                                         <td>{data.Title}</td>
                                         <td>{data.BesarFile}</td>
                                     </tr>
@@ -61,7 +60,6 @@ class Faq extends Component {
                           <div className="card-body">
                             <table style={{width:"100%",textAlign:"left"}}>
                                 <thead>
-                                    <th>id</th>
                                     <th>Pertanyaan</th>
                                     <th>Jawaban</th>
                                 </thead>
@@ -87,14 +85,14 @@ class Faq extends Component {
                                 <div className="collapse show" id="collapseCardExample">
                                     <div className="card-body">
                                         <div className="row">
-                                        <div className="col col-md-1">
+                                        <div className="col-12 col-md-1">
                                         <h6>Pilih Kateogri</h6>
                                         <div className="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
                                             <a onClick={()=>this.componentDidMount()} className="nav-link active" id="v-pills-home-tab" data-toggle="pill" href="#v-pills-home" role="tab" aria-controls="v-pills-home" aria-selected="true">Semua</a>
                                             {navcategory}                                                             
                                         </div>
                                         </div>
-                                        <div className="col col-md-11">
+                                        <div className="col-12 col-md-11">
                                         <div className="tab-content" id="v-pills-tabContent">
                                             <div className="tab-pane fade show active" id="v-pills-home" role="tabpanel" aria-labelledby="v-pills-home-tab">
                                             <div className="accordion" id="accordionExample">

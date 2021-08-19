@@ -74,6 +74,15 @@ Handlelogout (){
       
   }
 
+  handlesidebar = (e) => {
+    if(this.props.button != "navbar-nav bg-gradient-primary sidebar sidebar-dark accordion"){
+      const btnsidebar = "navbar-nav bg-gradient-primary sidebar sidebar-dark accordion";
+    this.props.updatebutton(btnsidebar)  
+    }else{
+      const btnsidebar = "navbar-nav bg-gradient-primary sidebar sidebar-dark accordion toggled";
+    this.props.updatebutton(btnsidebar)
+    }
+  }
 
   
   render(){  
@@ -102,7 +111,7 @@ Handlelogout (){
    }
     return(
         <nav className="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
-                    <button id="sidebarToggleTop" className="btn btn-link d-md-none rounded-circle mr-3">
+                    <button onClick={this.handlesidebar} id="sidebarToggleTop"  className="btn btn-link d-md-none rounded-circle mr-3">
                         <i className="fa fa-bars"></i>
                     </button>
                     <ul className="navbar-nav ml-auto">
@@ -110,7 +119,7 @@ Handlelogout (){
                         <li className="nav-item dropdown no-arrow">
                             <a className="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <span className="mr-2 d-none d-lg-inline text-gray-600 small">{namauser}</span>
+                                <span className="mr-2 d-lg-inline text-gray-600 small">{namauser}</span>
                             </a>
                             <div className="dropdown-menu dropdown-menu-right shadow animated--grow-in"
                                 aria-labelledby="userDropdown">
@@ -118,11 +127,11 @@ Handlelogout (){
                                   <input onChange={this.handleChange} type="email" name="username" placeholder="Masukan email anda" />
                                   <input onChange={this.handleChange} type="password" name="password" placeholder="Masukan password" />
                                 </div>
-                                <a onClick={this.Handlelogout} className="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal" style={btn2}>
+                                <a onClick={this.Handlelogout} className="dropdown-item btn-primary" href="#" data-toggle="modal" data-target="#logoutModal" style={btn2}>
                                     <i className="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
                                     Keluar
                                 </a>
-                                <a onClick={this.handleLogin} className="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal" style={btn1}>
+                                <a onClick={this.handleLogin} className="dropdown-item btn-primary" href="#" data-toggle="modal" data-target="#logoutModal" style={btn1}>
                                     <i className="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
                                     Masuk
                                 </a>
@@ -134,11 +143,17 @@ Handlelogout (){
     )
   }
 }
+const mapDipatchToprops = (dispatch) =>{
+  return{
+    updatebutton: (data) => dispatch({type:'UPDATEBUTTON',databutton:data}),
+  }
+  }
 
 const mapStatetoprops=(state)=>{
   return{
-    option:state.datawebsiteidentity
+    option:state.datawebsiteidentity,
+    button:state.databutton
   }
 }
 
-export default connect(mapStatetoprops)(Header);
+export default connect(mapStatetoprops,mapDipatchToprops)(Header);

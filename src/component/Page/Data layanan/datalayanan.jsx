@@ -59,7 +59,7 @@ class datapengjuan extends Component {
                         namalayanan : layanan.NamaLayanan,
                         janjilayanan : layanan.JanjiLayanan,
                         persyaratan : <button onClick={()=>this.handelPersyaratan(layanan.Persyaratan)} type="button" class="btn btn-primary" data-toggle="modal" data-target="#popuppersyaratan">Persyaratan</button>,
-                        permohonan : <Link style={btn1} onClick={()=>this.handelform(layanan.id,layanan.NamaLayanan)} to="/pengajuan" className="btn btn-success">Pengjuan</Link>,
+                        permohonan : <Link style={btn1} onClick={()=>this.handelform(layanan.id,layanan.NamaLayanan)} to="/pengajuan" className="btn btn-success">Pengajuan</Link>,
                      } )
                     })
 
@@ -114,14 +114,14 @@ class datapengjuan extends Component {
                                 <div className="collapse show" id="collapseCardExample">
                                     <div className="card-body">
                                         <div className="row">
-                                        <div className="col col-md-1">
+                                        <div className="col-12 col-md-1">
                                         <h6>Pilih Kateogri</h6>
                                         <div className="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
                                             <a onClick={()=>this.componentDidMount()} className="nav-link active" id="v-pills-home-tab" data-toggle="pill" href="#v-pills-home" role="tab" aria-controls="v-pills-home" aria-selected="true">Semua</a>
                                             {navcategory}                                                             
                                         </div>
                                         </div>
-                                        <div className="col col-md-11">
+                                        <div className="col-12 col-md-11">
                                         <div className="tab-content" id="v-pills-tabContent">
                                             <div className="tab-pane fade show active" id="v-pills-home" role="tabpanel" aria-labelledby="v-pills-home-tab">
                                             <DataTable
