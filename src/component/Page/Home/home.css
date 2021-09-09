@@ -4,29 +4,6 @@
     padding: 9px 0px;
 }
 
-button.btnplay.youtube-link {
-    position: absolute;
-    left: 43%;
-    top: 34%;
-    width: 80px;
-    height: 80px;
-    background: #0000;
-    border: unset;
-    font-size: 60px;
-    color: red;
-}
-
-button.btnplay.youtube-link {
-    position: absolute;
-    left: 42%;
-    top: 34%;
-    width: 80px;
-    height: 80px;
-    background: #0000;
-    border: unset;
-    font-size: 60px;
-    color: red;
-}
 
 h3.titlevideo {
     padding: 10px;

@@ -9,7 +9,8 @@ class datapengjuan extends Component {
         this.state = {
             persyaratans :[],
             percatrgory :[],
-            search:""
+            search:"",
+            keterangan:""
         }    
       }
 
@@ -25,13 +26,23 @@ class datapengjuan extends Component {
         })
     }
 
+    updatefilter(event){
+      this.setState({
+          search: event.target.value.substr(0,20)
+      })
+  }
+
     handelform(id , nama){
       localStorage.setItem('titleform', nama);
       localStorage.setItem('idlayanan', id);
     }
 
-    handelPersyaratan(data){
-        this.setState({ persyaratans:data });
+    handelPersyaratan(data, keterangan){
+        console.log(keterangan)
+        this.setState({ 
+          persyaratans:data,
+          keterangan
+         });
     }
   
     render() {
@@ -41,8 +52,18 @@ class datapengjuan extends Component {
                 <a key={category.id} onClick={()=>this.handelPercategory(category.id)} className="nav-link" id={"v-pills-"+category.id+"-tab"} data-toggle="pill" href={"#v-pills-"+category.id} role="tab" aria-controls={"v-pills-"+category.id} aria-selected="false">{category.Title}</a>
               )
             })
-                
-                const datalayanan = this.state.percatrgory.map(layanan=>{
+            const filter = this.state.percatrgory.filter(
+              (datatemp) => {
+                  return datatemp.NamaLayanan.toLowerCase().indexOf(this.state.search.toLowerCase()) !== -1;
+              }
+            )
+            var datalayananjadi =[];
+            if(filter.length > 0){
+              datalayananjadi = filter; 
+            }
+                var nourut = 0;
+                const datalayanan = datalayananjadi.map(layanan=>{
+                  nourut++;
                   if(localStorage.getItem('token') !== ""){
                     
                     var btn1 ={
@@ -55,21 +76,22 @@ class datapengjuan extends Component {
                   }
                 }
                     return({
-                        id : layanan.id,
+                        id : nourut,
                         namalayanan : layanan.NamaLayanan,
-                        janjilayanan : layanan.JanjiLayanan,
-                        persyaratan : <button onClick={()=>this.handelPersyaratan(layanan.Persyaratan)} type="button" class="btn btn-primary" data-toggle="modal" data-target="#popuppersyaratan">Persyaratan</button>,
+                        janjilayanan : layanan.JaniLayanan,
+                        persyaratan : <button onClick={()=>this.handelPersyaratan(layanan.Persyaratan, layanan.Keterangan)} type="button" className="btn btn-primary" data-toggle="modal" data-target="#popuppersyaratan">Persyaratan</button>,
                         permohonan : <Link style={btn1} onClick={()=>this.handelform(layanan.id,layanan.NamaLayanan)} to="/pengajuan" className="btn btn-success">Pengajuan</Link>,
                      } )
                     })
 
                 console.log(this.state.persyaratans)
-
+                var no = 0;
                 const listsyarat = this.state.persyaratans.map(syaarat=>{
-                    return(
+                  no++;  
+                  return(
                         <div className="col col-12">
                         <div className="row">
-                        <div className="col col-2">{syaarat.id}</div>
+                        <div className="col col-2">{no}</div>
                         <div className="col col-8">{syaarat.Title}</div>
                         <div className="col col-2">{syaarat.BesarFile}</div>
                         </div>
@@ -114,14 +136,19 @@ class datapengjuan extends Component {
                                 <div className="collapse show" id="collapseCardExample">
                                     <div className="card-body">
                                         <div className="row">
-                                        <div className="col-12 col-md-1">
+                                        <div className="col-12 col-md-2">
                                         <h6>Pilih Kateogri</h6>
                                         <div className="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
                                             <a onClick={()=>this.componentDidMount()} className="nav-link active" id="v-pills-home-tab" data-toggle="pill" href="#v-pills-home" role="tab" aria-controls="v-pills-home" aria-selected="true">Semua</a>
                                             {navcategory}                                                             
                                         </div>
                                         </div>
-                                        <div className="col-12 col-md-11">
+                                        <div className="col-12 col-md-10">
+                                        <div className="d-sm-inline-block form-inline  navbar-search">
+                            <div className="input-group">
+                            <input type="text" className="form-control bg-light border-0 small" placeholder="Pencarian" onChange={this.updatefilter.bind(this)} aria-label="Search" aria-describedby="basic-addon2" />
+                        </div>
+                    </div>
                                         <div className="tab-content" id="v-pills-tabContent">
                                             <div className="tab-pane fade show active" id="v-pills-home" role="tabpanel" aria-labelledby="v-pills-home-tab">
                                             <DataTable
@@ -137,23 +164,22 @@ class datapengjuan extends Component {
                                         </div>
                                     </div>
                                 </div>
-                                <div class="modal fade" id="popuppersyaratan" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Persyaratan</h5>
-        <button style={{width:"max-content"}} type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <div className="modal fade" id="popuppersyaratan" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div className="modal-dialog" role="document">
+    <div className="modal-content">
+      <div className="modal-header">
+        <h5 className="modal-title" id="exampleModalLabel">Persyaratan</h5>
+        <button style={{width:"max-content"}} type="button" className="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
-      <div class="modal-body">
+      <div className="modal-body">
         <div className="row">
             {listsyarat}
         </div>
       </div>
-      <div class="modal-footer">
-      <p>Persyaratan yang ditampilkan pada halaman ini adalah persyaratan umum. Beberapa persyaratan layanan tertentu bersifat dinamis dan opsional. Kunjungi halaman formulir permohonan untuk mengetahui persyaratan secara langsung.</p>
-      <p>Pada layanan tertentu petugas dimungkinkan untuk memberikan respon permintaan konfirmasi data/dokumen tambahan. Kami sarankan kepada Anda agar memeriksa tracking kode tiket secara rutin. Tautan halaman permintaan dan pengiriman konfirmasi akan ditampilkan pada hasil tracking.</p>
+      <div className="modal-footer">
+      <div dangerouslySetInnerHTML={{__html: this.state.keterangan}} />
       </div>
     </div>
   </div>

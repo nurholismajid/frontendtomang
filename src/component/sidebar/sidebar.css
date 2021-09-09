@@ -102,3 +102,31 @@ div.card-header button, div.card-header button:hover {
 div.tab-pane.active div.card-header {
     background: #2c53c5;
 }
+
+button.btnplay.youtube-link {
+    position: absolute;
+    left: 40%;
+    top: 25%;
+    width: 20%;
+    background: #0000;
+    border: unset;
+    font-size: 60px;
+    color: red;
+    right: 45%;
+}
+
+.d-sm-inline-block.form-inline.navbar-search {
+    float: right;
+    min-width: 250px;
+    text-align: left;
+}
+
+input.form-control.bg-light.border-0.small {
+    box-shadow:unset !important;
+    text-align: left;
+    padding: 28px;
+}
+
+div.sc-hKFxyN.sc-eCApnc.sc-jSFjdj.iCxiXr.domoiu.dUbULe.rdt_TableCell {
+    min-width: 200px;
+}
