@@ -61,8 +61,6 @@ Handlelogout (){
             token:res.data.jwt
           })  
           this.funswal('Berhasil',"Akses diterima","success");
-
-            <Redirect to="/datalayanan" />
         }else{
           this.funswal('Gagal',"Username dan Password tidak cocok","warning");
             
@@ -86,6 +84,7 @@ Handlelogout (){
 
   
   render(){  
+   
     if(this.state.token !== ""){
       var formstyle ={
         display:"none"

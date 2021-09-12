@@ -29,7 +29,7 @@ class pengajuan extends Component {
             selectedOption2:null,
             capcha:null
         }    
-
+        localStorage.setItem('capcha',null);
       }
       funswal = (status,pesan,style)=>{
         swal(status,pesan, style);
@@ -132,22 +132,25 @@ class pengajuan extends Component {
             
         //         return id
         //      })
-        if(this.state.capcha != null){
+        if(localStorage.getItem('capcha') !== "null"){
              Api.post('data-permohonans',data)
              .then(res => {
                this.funswal("Sukses","Pesan Terkirim","success");
+               localStorage.setItem('capcha',null);
        })  
     }else{
         this.funswal("Maaf","Ceklis Saya Bukan Robot","warning");
+
     }
 
     }
 
     onChange(value) {
-        this.setState({ capcha: value });
+        localStorage.setItem('capcha', value);
       }
 
     render() {
+        console.log(this.state.capcha)
         if (localStorage.getItem('token') === "") {
             return <Redirect to="/" />
         }

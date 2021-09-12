@@ -46,6 +46,7 @@ class datapengjuan extends Component {
     }
   
     render() {
+      
       console.log(this.props.categorys) 
           const navcategory = this.props.categorys.map(category=>{
             return(
