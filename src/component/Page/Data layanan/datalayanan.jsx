@@ -137,7 +137,7 @@ class datapengjuan extends Component {
                                     <div className="card-body">
                                         <div className="row">
                                         <div className="col-12 col-md-2">
-                                        <h6>Pilih Kateogri</h6>
+                                        <h6>Pilih Kategori</h6>
                                         <div className="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
                                             <a onClick={()=>this.componentDidMount()} className="nav-link active" id="v-pills-home-tab" data-toggle="pill" href="#v-pills-home" role="tab" aria-controls="v-pills-home" aria-selected="true">Semua</a>
                                             {navcategory}                                                             

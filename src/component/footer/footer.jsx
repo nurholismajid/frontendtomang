@@ -31,16 +31,18 @@ class Footer extends Component  {
       </div>
       <div class="modal-body">
         <div className="row">
-            <div className="col-12">
-            <a className="dropdown-item btn-primary" href="#" >
-            <i class="fas fa-comment-smile"></i>
-                                    Pengaduan
-                                </a><br></br>
-                                <a className="dropdown-item btn-primary" href="#" >
-            <i class="fas fa-comment-smile"></i>
-                                    Layanan
-                                </a>
-            </div>
+          <div className="col-12">
+            <a className="dropdown-item btn-primary text-center tool-tip" href="#">
+              <i class="fas fa-comment-smile"></i>
+              Pengaduan
+              <span class="tooltiptext1">Apabila anda memiliki kendala / pertanyaan terkait pelayanan, klik untuk menghubungi petugas Pelayanan</span>
+            </a><br></br>
+            <a className="dropdown-item btn-primary text-center tool-tip" href="#">
+              <i class="fas fa-comment-smile"></i>
+              Layanan
+              <span class="tooltiptext2">Apabila anda mempunyai keluhan atas pelayanan yang kami berikan, klik untuk menghubungi  petugas Kepatuhan Internal</span>
+            </a>
+          </div>
         </div>
       </div>
       <div class="modal-footer">

@@ -85,14 +85,14 @@ class Faq extends Component {
                                 <div className="collapse show" id="collapseCardExample">
                                     <div className="card-body">
                                         <div className="row">
-                                        <div className="col-12 col-md-2">
-                                        <h6>Pilih Kateogri</h6>
+                                        <div className="col-12 col-md-3">
+                                        <h6>Pilih Kategori</h6>
                                         <div className="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
                                             <a onClick={()=>this.componentDidMount()} className="nav-link active" id="v-pills-home-tab" data-toggle="pill" href="#v-pills-home" role="tab" aria-controls="v-pills-home" aria-selected="true">Semua</a>
                                             {navcategory}                                                             
                                         </div>
                                         </div>
-                                        <div className="col-12 col-md-10">
+                                        <div className="col-12 col-md-9">
                                         <div className="tab-content" id="v-pills-tabContent">
                                             <div className="tab-pane fade show active" id="v-pills-home" role="tabpanel" aria-labelledby="v-pills-home-tab">
                                             <div className="accordion" id="accordionExample">

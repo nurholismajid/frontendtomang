@@ -117,9 +117,9 @@ Handlelogout (){
                     <ul className="navbar-nav ml-auto">
 
                         <li className="nav-item dropdown no-arrow">
-                            <a className="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
+                            <a className="nav-link dropdown-toggle signinbtn" href="#" id="userDropdown" role="button"
                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <span className="mr-2 d-lg-inline text-gray-600 small">{namauser}</span>
+                                <span className="d-lg-inline small">{namauser}</span>
                             </a>
                             <div className="dropdown-menu dropdown-menu-right shadow animated--grow-in"
                                 aria-labelledby="userDropdown">

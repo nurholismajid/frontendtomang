@@ -57,7 +57,7 @@ handlesidebar = (e) => {
             <li className="nav-item">
                 <Link className="nav-link" to="/datalayanan">
                 <i className="fas fa-fw fa-edit"></i>
-                    <span>Pengajuan</span></Link>
+                    <span>Pelayanan</span></Link>
             </li>
             <li className="nav-item">
                 <Link className="nav-link collapsed" to="#" data-toggle="collapse" data-target="#collapseUtilities"
@@ -68,20 +68,24 @@ handlesidebar = (e) => {
                 <div id="collapseUtilities" className="collapse" aria-labelledby="headingUtilities"
                     data-parent="#accordionSidebar">
                     <div className=" py-2 collapse-inner rounded">
-                        <Link className="nav-link" to="/datalayanan"><i class="fas fa-server"></i> Data Layanan</Link>
                         <Link className="nav-link" to="/tutorial"><i class="far fa-play-circle"></i> Video Tutorial</Link>
                     </div>
                 </div>
             </li>
             <li className="nav-item">
-                <a className="nav-link" target="_blank" href="https://api.whatsapp.com/send?phone=6282215687135&text=Hello%20ada%20yg%20bisa%20kami%20bantu%3F%E2%98%BA%EF%B8%8F">
+                <a className="nav-link" href="#" data-toggle="modal" data-target="#chat">
+                <i class="fas fa-comments"></i>
+                    <span>Chat</span></a>
+            </li>
+            <li className="nav-item">
+                <a className="nav-link" target="_blank" href="https://forms.gle/cuRAU734FZX6e77v6">
                 <i class="fas fa-bullhorn"></i>
-                    <span>Pengaduan</span></a>
+                    <span>Survei</span></a>
             </li>
             <li className="nav-item">
                 <Link className="nav-link" to="/faq">
                 <i class="fas fa-question-circle"></i>
-                    <span>Faq</span> </Link>
+                    <span>FAQ</span> </Link>
             </li>
             <div className="text-center d-none d-md-inline">
                 <button onClick={this.handlesidebar} className="rounded-circle border-0" id="sidebarToggle"></button>
