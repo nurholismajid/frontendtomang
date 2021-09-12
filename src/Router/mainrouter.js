@@ -10,6 +10,7 @@ import Datalayanan from '../component/Page/Data layanan/datalayanan';
 import Tutorial from '../component/Page/tutorial/tutorial';
 import Pengaduan from '../component/Page/Pengaduan/pengaduan';
 import Faq from '../component/Page/FAQ/faq';
+import Faq from '../component/Page/Survei/survei';
 function Mainrouter(){
     return(
         <BrowserRouter>
@@ -28,6 +29,7 @@ function Mainrouter(){
              <Route path="/tutorial" exact component={Tutorial} />
              <Route path="/pengaduan" exact component={Pengaduan} />
              <Route path="/faq" exact component={Faq} />
+             <Route path="/survei" exact component={Survei} />
              </div>
 
             </div>

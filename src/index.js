@@ -13,6 +13,7 @@ const globalState = {
   datatutorial:[],
   datacategoryfaq:[],
   datafaq:[],
+  datasurvei:[],
   databutton:"navbar-nav bg-gradient-primary sidebar sidebar-dark accordion"
 }
 
@@ -62,10 +63,18 @@ const rootReducer = (state = globalState, action) => {
       datafaq:action.datafaq
     } 
   }
+
   if(action.type === 'UPDATEBUTTON'){
     return{
       ... state,
       databutton:action.databutton
+    } 
+  }
+
+  if(action.type === 'UPDATESURVEY'){
+    return{
+      ... state,
+      datasurvei:action.datasurvei
     } 
   }
   

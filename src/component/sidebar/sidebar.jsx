@@ -78,7 +78,7 @@ handlesidebar = (e) => {
                     <span>Chat</span></a>
             </li>
             <li className="nav-item">
-                <a className="nav-link" target="_blank" href="https://forms.gle/cuRAU734FZX6e77v6">
+                <a className="nav-link" href="/survei">
                 <i class="fas fa-bullhorn"></i>
                     <span>Survei</span></a>
             </li>

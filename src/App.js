@@ -68,6 +68,13 @@ class App extends Component  {
           this.props.updatefaq(faq);
           
         })
+
+        Api.get('/survei')
+        .then(res => {
+          const survei = res.data;
+          this.props.updatesurvei(survei);
+          
+        })
  
 }
 
@@ -93,6 +100,7 @@ return{
   updatetutoril: (data) => dispatch({type:'UPDATETUTORIAL',datatutorial:data}),
   updatecategoryfaq: (data) => dispatch({type:'UPDATECATEGORYFAQ',datacategoryfaq:data}),
   updatefaq: (data) => dispatch({type:'UPDATEFAQ',datafaq:data}),
+  updatesurvei: (data) => dispatch({type:'UPDATESURVEI',datasurvei:data}),
 }
 }
 
