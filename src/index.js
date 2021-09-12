@@ -71,7 +71,7 @@ const rootReducer = (state = globalState, action) => {
     } 
   }
 
-  if(action.type === 'UPDATESURVEY'){
+  if(action.type === 'UPDATESURVEI'){
     return{
       ... state,
       datasurvei:action.datasurvei

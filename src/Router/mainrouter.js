@@ -10,7 +10,7 @@ import Datalayanan from '../component/Page/Data layanan/datalayanan';
 import Tutorial from '../component/Page/tutorial/tutorial';
 import Pengaduan from '../component/Page/Pengaduan/pengaduan';
 import Faq from '../component/Page/FAQ/faq';
-import Faq from '../component/Page/Survei/survei';
+import Survei from '../component/Page/Survei/Survei';
 function Mainrouter(){
     return(
         <BrowserRouter>

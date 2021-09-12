@@ -69,7 +69,7 @@ class App extends Component  {
           
         })
 
-        Api.get('/survei')
+        Api.get('/surveys')
         .then(res => {
           const survei = res.data;
           this.props.updatesurvei(survei);

@@ -124,7 +124,7 @@ Handlelogout (){
                             <div className="dropdown-menu dropdown-menu-right shadow animated--grow-in"
                                 aria-labelledby="userDropdown">
                                 <div className="formlogin" style={formstyle}>
-                                  <input onChange={this.handleChange} type="email" name="username" placeholder="Masukan email anda" />
+                                  <input onChange={this.handleChange} type="email" name="username" placeholder="Masukan username anda" />
                                   <input onChange={this.handleChange} type="password" name="password" placeholder="Masukan password" />
                                 </div>
                                 <a onClick={this.Handlelogout} className="dropdown-item btn-primary" href="#" data-toggle="modal" data-target="#logoutModal" style={btn2}>
