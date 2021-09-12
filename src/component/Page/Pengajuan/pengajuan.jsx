@@ -3,6 +3,7 @@ import Api from '../../../services/services';
 import Select from 'react-select';
 import swal from 'sweetalert';
 import {Redirect, Link } from 'react-router-dom';
+import ReCAPTCHA from "react-google-recaptcha";
 class pengajuan extends Component {
     constructor(props) {
         super(props);
@@ -136,6 +137,10 @@ class pengajuan extends Component {
                this.funswal("Sukses","Pesan Terkirim","success");
        })   
     }
+
+    onChange(value) {
+        console.log("Captcha value:", value);
+      }
 
     render() {
         if (localStorage.getItem('token') === "") {
@@ -271,6 +276,11 @@ Untuk Perusahaan Orang lain
                                 </div>
 
                             </div>
+
+                            <ReCAPTCHA
+    sitekey="6Le-v2AcAAAAADtyFfYVAQGV6BVe-xQqAMqdlWR_"
+    onChange={this.onChange}
+  />
                             
                             <button onClick={this.handleSubmit} style={{width:"100%", padding:"10px", fontWeight:"600"}} className="btn-primary">Submit</button>
             </div>
