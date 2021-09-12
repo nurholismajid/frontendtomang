@@ -26,7 +26,8 @@ class pengajuan extends Component {
             Status: "Menunggu_Konfirmasi",
             published_at: "2021-08-12T17:24:12.000Z",
             selectedOption1:null,
-            selectedOption2:null
+            selectedOption2:null,
+            capcha:null
         }    
 
       }
@@ -131,15 +132,19 @@ class pengajuan extends Component {
             
         //         return id
         //      })
-
+        if(this.state.capcha != null){
              Api.post('data-permohonans',data)
              .then(res => {
                this.funswal("Sukses","Pesan Terkirim","success");
-       })   
+       })  
+    }else{
+        this.funswal("Maaf","Ceklis Saya Bukan Robot","warning");
+    }
+
     }
 
     onChange(value) {
-        console.log("Captcha value:", value);
+        this.setState({ capcha: value });
       }
 
     render() {
