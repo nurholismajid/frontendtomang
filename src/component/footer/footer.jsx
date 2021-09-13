@@ -35,12 +35,12 @@ class Footer extends Component  {
             <a className="dropdown-item btn-primary text-center tool-tip" href="#">
               <i class="fas fa-comment-smile"></i>
               Pengaduan
-              <span class="tooltiptext1">Apabila anda memiliki kendala / pertanyaan terkait pelayanan, klik untuk menghubungi petugas Pelayanan</span>
+              <span class="tooltiptext1">Apabila anda mempunyai keluhan atas pelayanan yang kami berikan, klik untuk menghubungi  petugas Kepatuhan Internal</span>
             </a><br></br>
             <a className="dropdown-item btn-primary text-center tool-tip" href="#">
               <i class="fas fa-comment-smile"></i>
               Layanan
-              <span class="tooltiptext2">Apabila anda mempunyai keluhan atas pelayanan yang kami berikan, klik untuk menghubungi  petugas Kepatuhan Internal</span>
+              <span class="tooltiptext2">Apabila anda memiliki kendala / pertanyaan terkait pelayanan, klik untuk menghubungi petugas Pelayanan</span>
             </a>
           </div>
         </div>
