@@ -46,7 +46,6 @@ class datapengjuan extends Component {
     }
   
     render() {
-      
       console.log(this.props.categorys) 
           const navcategory = this.props.categorys.map(category=>{
             return(
@@ -102,19 +101,22 @@ class datapengjuan extends Component {
 
                 const columns = [
                     {
-                      name: 'Id',
+                      name: 'No',
                       selector: 'id',
                       sortable: true,
+                      width: '100px',
                     },
                     {
                       name: 'Nama layanan',
                       selector: 'namalayanan',
                       sortable: true,
+                      width: '400px',
                     },
                     {
                         name: 'Janji Layanan',
                         selector: 'janjilayanan',
                         sortable: true,
+                        width: '150px',
                       },
                       {
                         name: 'Persyaratan',
