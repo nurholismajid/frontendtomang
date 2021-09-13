@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import {connect} from 'react-redux';
-import {Redirect, Link} from 'react-router-dom';
 import Api from '../../services/services';
 import swal from 'sweetalert';
 

@@ -132,16 +132,24 @@ class pengajuan extends Component {
             
         //         return id
         //      })
-        if(localStorage.getItem('capcha') !== "null"){
-             Api.post('data-permohonans',data)
-             .then(res => {
-               this.funswal("Sukses","Pesan Terkirim","success");
-               localStorage.setItem('capcha',null);
-       })  
-    }else{
-        this.funswal("Maaf","Ceklis Saya Bukan Robot","warning");
 
-    }
+        Api.post('data-permohonans',data)
+        .then(res => {
+          this.funswal("Sukses","Pesan Terkirim","success");
+          localStorage.setItem('capcha',null);
+         }) 
+
+    //     if(localStorage.getItem('capcha') !== "null"){
+    //         Api.post('data-permohonans',data)
+    //         .then(res => {
+    //           this.funswal("Sukses","Pesan Terkirim","success");
+    //           localStorage.setItem('capcha',null);
+    //   }) 
+           
+    // }else{
+    //     this.funswal("Maaf","Ceklis Saya Bukan Robot","warning");
+
+    // }
 
     }
 
@@ -285,10 +293,10 @@ Untuk Perusahaan Orang lain
 
                             </div>
 
-                            <ReCAPTCHA
+                            {/* <ReCAPTCHA
     sitekey="6Le-v2AcAAAAADtyFfYVAQGV6BVe-xQqAMqdlWR_"
     onChange={this.onChange}
-  />
+  /> */}
                             
                             <button onClick={this.handleSubmit} style={{width:"100%", padding:"10px", fontWeight:"600"}} className="btn-primary">Submit</button>
             </div>
