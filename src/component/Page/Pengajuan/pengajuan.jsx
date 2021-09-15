@@ -25,7 +25,8 @@ class pengajuan extends Component {
             Status: "Menunggu_Konfirmasi",
             published_at: "2021-08-12T17:24:12.000Z",
             selectedOption1:null,
-            selectedOption2:null
+            selectedOption2:null,
+            token: localStorage.getItem('token')
         }    
 
       }
@@ -38,7 +39,11 @@ class pengajuan extends Component {
         Api.get('/data-layanans/'+localStorage.getItem('idlayanan'))
         .then(res => {
           const layanans = res.data;
-          this.setState({ layanans: layanans.Persyaratan });
+          this.setState({
+               layanans: layanans.Persyaratan,
+               token: localStorage.getItem('token') 
+        
+        });
           
         })
         
@@ -138,7 +143,7 @@ class pengajuan extends Component {
     }
 
     render() {
-        if (localStorage.getItem('token') === "") {
+        if (this.state.token !== null) {
             return <Redirect to="/" />
         }
         console.log(this.state.file)

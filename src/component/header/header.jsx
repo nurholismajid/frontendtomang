@@ -12,10 +12,8 @@ class Header extends Component  {
     this.state = {
       username:'',
       password:'',
-      token:''
+      token: localStorage.getItem('token')
     }
-    localStorage.setItem('token','');
-    localStorage.setItem('namauser','');
   }
 
   handleChange = (e) =>{
@@ -36,7 +34,7 @@ Handlelogout (){
       buttons: ["Cancel", "Yes!"],
     }).then(function(value) {
       if (value) {
-              sessionStorage.removeItem('token');
+              localStorage.removeItem('token');
               window.location.reload();
       }
   });
@@ -61,6 +59,7 @@ Handlelogout (){
             token:res.data.jwt
           })  
           this.funswal('Berhasil',"Akses diterima","success");
+          window.location.reload();
           
         }else{
           this.funswal('Gagal',"Username dan Password tidak cocok","warning");
@@ -86,7 +85,7 @@ Handlelogout (){
   
   render(){  
    
-    if(this.state.token !== ""){
+    if(this.state.token !== null){
       var formstyle ={
         display:"none"
       }

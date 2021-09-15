@@ -10,7 +10,8 @@ class datapengjuan extends Component {
             persyaratans :[],
             percatrgory :[],
             search:"",
-            keterangan:""
+            keterangan:"",
+            token: localStorage.getItem('token')
         }    
       }
 
@@ -62,9 +63,10 @@ class datapengjuan extends Component {
               datalayananjadi = filter; 
             }
                 var nourut = 0;
-                const datalayanan = datalayananjadi.map(layanan=>{
+                if(this.state.token !== null){
+                var datalayanan = datalayananjadi.map(layanan=>{
                   nourut++;
-                  if(localStorage.getItem('token') !== ""){
+                  if(this.state.token !== null){
                     
                     var btn1 ={
                       display:"block"
@@ -84,6 +86,30 @@ class datapengjuan extends Component {
                      } )
                     })
 
+                }else{
+
+                  var datalayanan = datalayananjadi.map(layanan=>{
+                    nourut++;
+                    if(this.state.token !== null){
+                      
+                      var btn1 ={
+                        display:"block"
+                      }
+  
+                   }else{
+                     var btn1 ={
+                      display:"none"
+                    }
+                  }
+                      return({
+                          id : nourut,
+                          namalayanan : layanan.NamaLayanan,
+                          janjilayanan : layanan.JaniLayanan,
+                          persyaratan : <button onClick={()=>this.handelPersyaratan(layanan.Persyaratan, layanan.Keterangan)} type="button" className="btn btn-primary" data-toggle="modal" data-target="#popuppersyaratan">Persyaratan</button>,
+                         } )
+                      })
+                }
+
                 console.log(this.state.persyaratans)
                 var no = 0;
                 const listsyarat = this.state.persyaratans.map(syaarat=>{
@@ -98,8 +124,8 @@ class datapengjuan extends Component {
                         </div>
                         )
                     })
-
-                const columns = [
+                if(this.state.token !== null){
+                var columns = [
                     {
                       name: 'No',
                       selector: 'id',
@@ -132,6 +158,36 @@ class datapengjuan extends Component {
                         width: '150px',
                       }
                   ];
+                }else{
+                  var columns = [
+                    {
+                      name: 'No',
+                      selector: 'id',
+                      sortable: true,
+                      width: '100px',
+                      center: true,
+                    },
+                    {
+                      name: 'Nama layanan',
+                      selector: 'namalayanan',
+                      sortable: true,
+                    },
+                    {
+                        name: 'Janji Layanan',
+                        selector: 'janjilayanan',
+                        sortable: true,
+                        width: '150px',
+                        center: true,
+                      },
+                      {
+                        name: 'Persyaratan',
+                        selector: 'persyaratan',
+                        sortable: true,
+                        width: '150px',
+                      }
+                  ];
+
+                }
             
         return (
             <div className="row">
