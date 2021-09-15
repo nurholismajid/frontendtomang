@@ -143,9 +143,9 @@ class pengajuan extends Component {
     }
 
     render() {
-        if (this.state.token !== null) {
-            return <Redirect to="/" />
-        }
+        // if (this.state.token !== null) {
+        //     return <Redirect to="/" />
+        // }
         console.log(this.state.file)
         console.log(this.state.layanans)
         const persyaratan = this.state.layanans.map(Persyaratan=>{
