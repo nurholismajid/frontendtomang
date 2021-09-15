@@ -3,6 +3,7 @@ import Api from '../../../services/services';
 import Select from 'react-select';
 import swal from 'sweetalert';
 import {Redirect, Link } from 'react-router-dom';
+import emailjs from 'emailjs-com';
 class pengajuan extends Component {
     constructor(props) {
         super(props);
@@ -26,7 +27,8 @@ class pengajuan extends Component {
             published_at: "2021-08-12T17:24:12.000Z",
             selectedOption1:null,
             selectedOption2:null,
-            token: localStorage.getItem('token')
+            token: localStorage.getItem('token'), 
+            kodetiket:""
         }    
 
       }
@@ -57,6 +59,31 @@ class pengajuan extends Component {
         })
     }
 
+    handleChangeName = (e) =>{
+        const today = new Date();
+        const dd = today.getDate();
+        const mm = today.getMonth()+1; 
+        const yyyy = today.getFullYear();
+        if(mm  < 10){
+            var bulan = "0" +  mm;
+        }else{
+            var bulan = mm;
+               
+        }
+
+        if(dd  < 10){
+            var hari = "0" +  dd;
+        }else{
+            var hari = dd;
+               
+        }
+       const kode =  e.target.value.substring(0,3).toUpperCase();
+        this.setState({
+            [e.target.name]: e.target.value,
+            kodetiket: kode+yyyy+bulan+hari
+        })
+    }
+
     handleChangefile = async (e) =>{
         
         const data = new FormData()
@@ -82,7 +109,16 @@ class pengajuan extends Component {
         this.setState({ selectedOption2:selectedOption2.value });
         console.log(`Option selected:`, selectedOption2);
       };
-    handleSubmit = () =>{
+    handleSubmit = (e) =>{
+
+        e.preventDefault();
+
+        emailjs.sendForm('service_xweetxc', 'template_wwaispn', e.target, 'user_UzVDxdH1miSC8OrDROzH0')
+          .then((result) => {
+              console.log(result.text);
+          }, (error) => {
+              console.log(error.text);
+          });
 
         const today = new Date();
         const dd = today.getDate();
@@ -139,6 +175,7 @@ class pengajuan extends Component {
              Api.post('data-permohonans',data)
              .then(res => {
                this.funswal("Sukses","Pesan Terkirim","success");
+              
        })   
     }
 
@@ -181,6 +218,7 @@ const options1 = [
             <div>
                 <h1>Formulir pengajuan {localStorage.getItem('titleform')}</h1>
                 <br></br>
+                <form onSubmit={this.handleSubmit}>
                 <div className="row">
                 <div className="card shadow mb-12 search">
                                 <a href="#collapseCardExample1" className="d-block card-header py-3" data-toggle="collapse" role="button" aria-expanded="true" aria-controls="collapseCardExample" style={{background:"rgb(52 91 204)"}}>
@@ -190,6 +228,7 @@ const options1 = [
                                     <div className="card-body">
                                         <div className="row">
                                             <div className="col col-6">
+                                                <input type="hidden" value={this.state.kodetiket} name="kodepengajuan"/>
                                                 <label htmlFor="npwpperusahaan" style={{textAlign:"Left",width:"100%"}}>NPWP Perusahaan Atau Pribadi</label>
                                                 <input onChange={this.handleChange} name="NPWP_PerusahaanPerseorangan" type="number" style={{textAlign:"Left",width:"100%"}} id="npwpperusahaan" placeholder="Masukan NPWP Perusahaan" />
                                                 <label name="NPWP_PerusahaanPerseorangan" htmlFor="namaerusahaan" style={{textAlign:"Left",width:"100%"}}>Nama Perusahan</label>
@@ -223,7 +262,7 @@ Untuk Perusahaan Orang lain
                                             </div>
                                             <div className="col col-6">
                                             <label htmlFor="namaPic" style={{textAlign:"Left",width:"100%"}}>Nama Lengkap PIC</label>
-                                                <input onChange={this.handleChange} name="Nama_KTP" type="text" style={{textAlign:"Left",width:"100%"}} id="namaPic" placeholder=" Masukan Nama PIC" />
+                                                <input onChange={this.handleChangeName} name="Nama_KTP" type="text" style={{textAlign:"Left",width:"100%"}} id="namaPic" placeholder=" Masukan Nama PIC" />
                                             <label htmlFor="NIKPic" style={{textAlign:"Left",width:"100%"}}>NIK PIC</label>
                                                 <input onChange={this.handleChange} name="NomorNIK" type="number" style={{textAlign:"Left",width:"100%"}} id="NIKPic" placeholder=" Masukan NIK PIC" />
                                                 <label htmlFor="TeleponPic" style={{textAlign:"Left",width:"100%"}}>Telepon PIC</label>
@@ -280,8 +319,9 @@ Untuk Perusahaan Orang lain
 
                             </div>
                             
-                            <button onClick={this.handleSubmit} style={{width:"100%", padding:"10px", fontWeight:"600"}} className="btn-primary">Submit</button>
+                            <button  type="submit" style={{width:"100%", padding:"10px", fontWeight:"600"}} className="btn-primary">Submit</button>
             </div>
+                </form>
             </div>
         );
     }
