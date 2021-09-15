@@ -218,9 +218,10 @@ const options1 = [
             <div>
                 <h1>Formulir pengajuan {localStorage.getItem('titleform')}</h1>
                 <br></br>
-                <form onSubmit={this.handleSubmit}>
+              
                 <div className="row">
                 <div className="card shadow mb-12 search">
+                            <form onSubmit={this.handleSubmit}>
                                 <a href="#collapseCardExample1" className="d-block card-header py-3" data-toggle="collapse" role="button" aria-expanded="true" aria-controls="collapseCardExample" style={{background:"rgb(52 91 204)"}}>
                                     <h6 className="m-0 font-weight-bold text-white">Data Pemohon</h6>
                                 </a>
@@ -306,6 +307,8 @@ Untuk Perusahaan Orang lain
                                         
                                     </div>
                                 </div>
+                                <button  type="submit" style={{width:"100%", padding:"10px", fontWeight:"600"}} className="btn-primary">Submit</button>
+                                </form>
                                 <a href="#collapseCardExample" className="d-block card-header py-3" data-toggle="collapse" role="button" aria-expanded="true" aria-controls="collapseCardExample" style={{background:"rgb(52 91 204)"}}>
                                     <h6 className="m-0 font-weight-bold text-white">Upload Persyaratan</h6>
                                 </a>
@@ -319,9 +322,9 @@ Untuk Perusahaan Orang lain
 
                             </div>
                             
-                            <button  type="submit" style={{width:"100%", padding:"10px", fontWeight:"600"}} className="btn-primary">Submit</button>
+                            
             </div>
-                </form>
+                
             </div>
         );
     }
