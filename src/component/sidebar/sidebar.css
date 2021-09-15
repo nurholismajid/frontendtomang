@@ -206,7 +206,6 @@ div.sc-hKFxyN.sc-eCApnc.sc-jSFjdj.iCxiXr.domoiu.dUbULe.rdt_TableCell {
     padding: 5px 25px;
     border-right: 2px solid #000;
     text-align: center !important;
-    justify-content: center;
 }
 
 .sc-fnVZcZ.gtrWDy.rdt_TableHeader {
@@ -225,6 +224,12 @@ div.sc-hKFxyN.sc-eCApnc.sc-jSFjdj.iCxiXr.domoiu.dUbULe.rdt_TableCell {
     background-color: #ececec;
     border-radius: 0;
     color: #000;
+}
+
+.sc-dlnjwi.eYvtlD.rdt_TableHeadRow div {
+    font-size: 14px;
+    font-weight: bold;
+    justify-content: center;
 }
 
 /* hover animation */

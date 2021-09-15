@@ -62,8 +62,7 @@ class datapengjuan extends Component {
               datalayananjadi = filter; 
             }
                 var nourut = 0;
-                if(localStorage.getItem('token') !== ""){
-                var datalayanan = datalayananjadi.map(layanan=>{
+                const datalayanan = datalayananjadi.map(layanan=>{
                   nourut++;
                   if(localStorage.getItem('token') !== ""){
                     
@@ -84,19 +83,6 @@ class datapengjuan extends Component {
                         permohonan : <Link style={btn1} onClick={()=>this.handelform(layanan.id,layanan.NamaLayanan)} to="/pengajuan" className="btn btn-success">Pengajuan</Link>,
                      } )
                     })
-                }else{
-                  var datalayanan = datalayananjadi.map(layanan=>{
-                    nourut++;
-                   
-                      return({
-                          id : nourut,
-                          namalayanan : layanan.NamaLayanan,
-                          janjilayanan : layanan.JaniLayanan,
-                          persyaratan : <button onClick={()=>this.handelPersyaratan(layanan.Persyaratan, layanan.Keterangan)} type="button" className="btn btn-primary" data-toggle="modal" data-target="#popuppersyaratan">Persyaratan</button>,
-                       } )
-                      })
-
-                }
 
                 console.log(this.state.persyaratans)
                 var no = 0;
@@ -113,65 +99,39 @@ class datapengjuan extends Component {
                         )
                     })
 
-                if(localStorage.getItem('token') !== ""){
-                var columns = [
+                const columns = [
                     {
                       name: 'No',
                       selector: 'id',
                       sortable: true,
                       width: '100px',
+                      center: true,
                     },
                     {
                       name: 'Nama layanan',
                       selector: 'namalayanan',
                       sortable: true,
-                      width: '400px',
                     },
                     {
                         name: 'Janji Layanan',
                         selector: 'janjilayanan',
                         sortable: true,
                         width: '150px',
+                        center: true,
                       },
                       {
                         name: 'Persyaratan',
                         selector: 'persyaratan',
                         sortable: true,
+                        width: '150px',
                       },
                       {
                         name: 'Permohonan',
                         selector: 'permohonan',
                         sortable: true,
-                      }
-                  ];
-                }else{
-                  var columns = [
-                    {
-                      name: 'No',
-                      selector: 'id',
-                      sortable: true,
-                      width: '100px',
-                    },
-                    {
-                      name: 'Nama layanan',
-                      selector: 'namalayanan',
-                      sortable: true,
-                      width: '400px',
-                    },
-                    {
-                        name: 'Janji Layanan',
-                        selector: 'janjilayanan',
-                        sortable: true,
                         width: '150px',
-                      },
-                      {
-                        name: 'Persyaratan',
-                        selector: 'persyaratan',
-                        sortable: true,
                       }
                   ];
-
-                }
             
         return (
             <div className="row">

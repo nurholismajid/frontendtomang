@@ -32,12 +32,12 @@ class Footer extends Component  {
       <div class="modal-body">
         <div className="row">
           <div className="col-12">
-            <a className="dropdown-item btn-primary text-center tool-tip" href="#">
+            <a className="dropdown-item btn-primary text-center tool-tip" href="https://api.whatsapp.com/send?phone=6282126361821&text=Halo Kepatuhan Internal Bea Cukai Fakfak%0ASaya : ...%0Adari : ...%0Aingin menyampaikan keluhan terkait %3F%EF%B8%8F">
               <i class="fas fa-comment-smile"></i>
               Pengaduan
               <span class="tooltiptext1">Apabila anda mempunyai keluhan atas pelayanan yang kami berikan, klik untuk menghubungi  petugas Kepatuhan Internal</span>
             </a><br></br>
-            <a className="dropdown-item btn-primary text-center tool-tip" href="#">
+            <a className="dropdown-item btn-primary text-center tool-tip" href="https://api.whatsapp.com/send?phone=6282126361821&text=Halo%20layanan%20Bea%20Cukai%20Fakfak%0ASaya%20:%20...%0Adari%20:%20...%0Aingin%20bertanya%20terkait%3F%EF%B8%8F">
               <i class="fas fa-comment-smile"></i>
               Layanan
               <span class="tooltiptext2">Apabila anda memiliki kendala / pertanyaan terkait pelayanan, klik untuk menghubungi petugas Pelayanan</span>

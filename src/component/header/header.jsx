@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import {connect} from 'react-redux';
+import {Redirect, Link} from 'react-router-dom';
 import Api from '../../services/services';
 import swal from 'sweetalert';
 
@@ -60,6 +61,7 @@ Handlelogout (){
             token:res.data.jwt
           })  
           this.funswal('Berhasil',"Akses diterima","success");
+          
         }else{
           this.funswal('Gagal',"Username dan Password tidak cocok","warning");
             

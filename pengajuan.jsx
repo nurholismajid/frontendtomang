@@ -3,6 +3,7 @@ import Api from '../../../services/services';
 import Select from 'react-select';
 import swal from 'sweetalert';
 import {Redirect, Link } from 'react-router-dom';
+import ReCAPTCHA from "react-google-recaptcha";
 class pengajuan extends Component {
     constructor(props) {
         super(props);
@@ -25,9 +26,10 @@ class pengajuan extends Component {
             Status: "Menunggu_Konfirmasi",
             published_at: "2021-08-12T17:24:12.000Z",
             selectedOption1:null,
-            selectedOption2:null
+            selectedOption2:null,
+            capcha:null
         }    
-
+        localStorage.setItem('capcha',null);
       }
       funswal = (status,pesan,style)=>{
         swal(status,pesan, style);
@@ -130,14 +132,25 @@ class pengajuan extends Component {
             
         //         return id
         //      })
-
+        if(localStorage.getItem('capcha') !== "null"){
              Api.post('data-permohonans',data)
              .then(res => {
                this.funswal("Sukses","Pesan Terkirim","success");
-       })   
+               localStorage.setItem('capcha',null);
+       })  
+    }else{
+        this.funswal("Maaf","Ceklis Saya Bukan Robot","warning");
+
     }
 
+    }
+
+    onChange(value) {
+        localStorage.setItem('capcha', value);
+      }
+
     render() {
+        console.log(this.state.capcha)
         if (localStorage.getItem('token') === "") {
             return <Redirect to="/" />
         }
@@ -151,7 +164,7 @@ class pengajuan extends Component {
                                             </div>
                                             <div className="col col-6">
                                                 <h5 style={{textAlign:"Left",width:"100%"}} htmlFor="">Upload Persyaratan</h5>
-                                                <input class="persyaratan-class" onChange={this.handleChangefile} style={{textAlign:"Left",width:"100%"}} type="file" name={"file"+Persyaratan.id} />
+                                                <input onChange={this.handleChangefile} style={{textAlign:"Left",width:"100%"}} type="file" name={"file"+Persyaratan.id} />
                                                 <p style={{textAlign:"Left",width:"100%", color:"red"}}>* Ukuran file maximal {Persyaratan.BesarFile}</p>
                                             </div>
                                         </div>
@@ -160,17 +173,14 @@ class pengajuan extends Component {
 
             
 const options1 = [
-    { value: 'Exportir', label: 'Exportir' },
-    { value: 'Importir', label: 'Importir' },
-    { value: 'PPJK', label: 'PPJK' },
-    { value: 'Pengangkut', label: 'Pengangkut' },
-    { value: 'Pengusaha Cukai', label: 'Pengusaha Cukai' },
+    { value: 'Export', label: 'Export' },
+    { value: 'Import', label: 'Import' },
   ];
 
-//   const options2 = [
-//     { value: 'Modul 1', label: 'Modul 1' },
-//     { value: 'Modul 2', label: 'Modul 2' },
-//   ];
+  const options2 = [
+    { value: 'Modul 1', label: 'Modul 1' },
+    { value: 'Modul 2', label: 'Modul 2' },
+  ];
 
         return (
             <div>
@@ -252,11 +262,11 @@ Untuk Perusahaan Orang lain
                                                 <input onChange={this.handleChange} name="Alamat" type="text" style={{textAlign:"Left",width:"100%"}} id="Alamat" placeholder="Masukan Alamat" />
                                                 <label htmlFor="emailperusahan" style={{textAlign:"Left",width:"100%"}}>Email</label>
                                                 <input onChange={this.handleChange} name="email" type="Email" style={{textAlign:"Left",width:"100%"}} id="emailperusahan" placeholder="Masukan Email" />
-                                                {/* <label htmlFor="Modul" style={{textAlign:"Left",width:"100%"}}>Jenis Modul</label>
+                                                <label htmlFor="Modul" style={{textAlign:"Left",width:"100%"}}>Jenis Modul</label>
                                                 <Select
         onChange={this.handleChangeselect2}
         options={options2}
-      /> */}
+      />
                                             </div>
                                         </div>
                                         
@@ -274,6 +284,11 @@ Untuk Perusahaan Orang lain
                                 </div>
 
                             </div>
+
+                            <ReCAPTCHA
+    sitekey="6Le-v2AcAAAAADtyFfYVAQGV6BVe-xQqAMqdlWR_"
+    onChange={this.onChange}
+  />
                             
                             <button onClick={this.handleSubmit} style={{width:"100%", padding:"10px", fontWeight:"600"}} className="btn-primary">Submit</button>
             </div>
