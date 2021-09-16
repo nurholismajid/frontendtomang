@@ -113,7 +113,11 @@ class pengajuan extends Component {
 
         e.preventDefault();
 
+<<<<<<< HEAD
         emailjs.sendForm('service_31fzgpv', 'template_4098igw', e.target, 'user_UzVDxdH1miSC8OrDROzH0')
+=======
+        emailjs.sendForm('service_xweetxc', 'template_wwaispn', e.target, 'user_UzVDxdH1miSC8OrDROzH0')
+>>>>>>> 2733cd66a153fb996a01a029b0255d91c8a63ebe
           .then((result) => {
               console.log(result.text);
           }, (error) => {
@@ -230,7 +234,10 @@ const options1 = [
                                         <div className="row">
                                             <div className="col col-6">
                                                 <input type="hidden" value={this.state.kodetiket} name="kodepengajuan"/>
+<<<<<<< HEAD
                                                 <input type="hidden" value={localStorage.getItem('titleform')} name="namalayanan"/>
+=======
+>>>>>>> 2733cd66a153fb996a01a029b0255d91c8a63ebe
                                                 <label htmlFor="npwpperusahaan" style={{textAlign:"Left",width:"100%"}}>NPWP Perusahaan Atau Pribadi</label>
                                                 <input onChange={this.handleChange} name="NPWP_PerusahaanPerseorangan" type="number" style={{textAlign:"Left",width:"100%"}} id="npwpperusahaan" placeholder="Masukan NPWP Perusahaan" />
                                                 <label name="NPWP_PerusahaanPerseorangan" htmlFor="namaerusahaan" style={{textAlign:"Left",width:"100%"}}>Nama Perusahan</label>
@@ -308,7 +315,11 @@ Untuk Perusahaan Orang lain
                                         
                                     </div>
                                 </div>
+<<<<<<< HEAD
                                 <button  type="submit" style={{width:"100%", padding:"10px", fontWeight:"600"}} className="btn-primary button-submit">Submit</button>
+=======
+                                <button  type="submit" style={{width:"100%", padding:"10px", fontWeight:"600"}} className="btn-primary">Submit</button>
+>>>>>>> 2733cd66a153fb996a01a029b0255d91c8a63ebe
                                 </form>
                                 <a href="#collapseCardExample" className="d-block card-header py-3" data-toggle="collapse" role="button" aria-expanded="true" aria-controls="collapseCardExample" style={{background:"rgb(52 91 204)"}}>
                                     <h6 className="m-0 font-weight-bold text-white">Upload Persyaratan</h6>
