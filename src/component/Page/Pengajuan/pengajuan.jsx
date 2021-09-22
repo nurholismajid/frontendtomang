@@ -202,7 +202,7 @@ class pengajuan extends Component {
 
             
 const options1 = [
-    { value: 'Exportir', label: 'Exportir' },
+    { value: 'Eksportir', label: 'Eksportir' },
     { value: 'Importir', label: 'Importir' },
     { value: 'PPJK', label: 'PPJK' },
     { value: 'Pengangkut', label: 'Pengangkut' },
