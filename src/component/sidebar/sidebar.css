@@ -232,6 +232,16 @@ div.sc-hKFxyN.sc-eCApnc.sc-jSFjdj.iCxiXr.domoiu.dUbULe.rdt_TableCell {
     justify-content: center;
 }
 
+.button-submit {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+}
+
+.upload-file{
+    padding-bottom: 50px
+}
+
 /* hover animation */
 
 #v-pills-tab .nav-link.active:hover {
